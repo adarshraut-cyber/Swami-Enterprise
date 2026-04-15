@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Your Order | Swami Enterprise</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: url('../images/eye.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: white;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid #444;
+    }
+
+    nav h1 {
+      font-size: 28px;
+      color: white;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4d4d;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 30px 0 10px;
+      font-size: 34px;
+    }
+
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px 30px 60px;
+    }
+
+    .product {
+      width: 200px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    .product:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid #444;
+    }
+
+    @media (max-width: 600px) {
+      .product {
+        width: 140px;
+      }
+
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        margin-top: 10px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Swami Enterprise</h1>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#">Orders</a>
+      <a href="#">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="signin.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Title -->
+  <h2>Create Your Order</h2>
+
+  <!-- Products -->
+  <div class="products-container">
+    <div class="product" onclick="location.href='business_cards_order.html'">
+      <img src="../images/business card.webp" alt="Business Card">
+      <div class="product-name">Business Card</div>
+    </div>
+
+    <div class="product" onclick="location.href='card_page.html'">
+      <img src="../images/Cards.webp" alt="Celebration-Cards">
+      <div class="product-name">Celebration-Cards</div>
+    </div>
+
+    <div class="product" onclick="location.href='certificates_order.html'">
+      <img src="../images/Certificates.webp" alt="Certificates">
+      <div class="product-name">Certificates</div>
+    </div>
+
+    <div class="product" onclick="location.href='flyers_order.html'">
+      <img src="../images/Flyer.webp" alt="Flyers">
+      <div class="product-name">Flyers</div>
+    </div>
+
+    <div class="product" onclick="location.href='icard.html'">
+      <img src="../images/Id-cards.webp" alt="ID Cards">
+      <div class="product-name">ID Cards</div>
+    </div>
+
+    <div class="product" onclick="location.href='posters_order.html'">
+      <img src="../images/poster.webp" alt="Posters">
+      <div class="product-name">Posters</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Swami Enterprise. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

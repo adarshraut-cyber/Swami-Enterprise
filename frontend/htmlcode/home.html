@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swami Enterprise</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      height: 100vh;
+      background: url('../images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    nav {
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 2;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4d4d;
+    }
+
+    .hero-content {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 40px;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .hero-content button {
+      padding: 12px 30px;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s ease;
+    }
+
+    .hero-content button:hover {
+      background: #ff4d4d;
+      border-color: #ff4d4d;
+    }
+
+    #about {
+      padding: 80px 40px;
+      background-color: rgba(255,255,255,0.95);
+      color: #333;
+    }
+
+    #about h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-box img {
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #aaa;
+    }
+
+    .about-text {
+      max-width: 500px;
+    }
+
+    .about-text h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 4px solid white;
+      border-radius: 10px;
+    }
+
+    .modal-overlay:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src="../images/swami-logo.png" alt="Swami Logo" onclick="openPreview()">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Login/signIn</a>
+      <a href="home.html">Home</a>
+      <a href="dashboard.html">DashBoard</a>
+      <a href="upload.html">Order History</a>
+      <a href="#">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Content -->
+  <div class="hero-content">
+    <h1>Welcome to Swami Enterprise</h1>
+    <p>Where Print Meets Precision. Bringing your ideas to life in color.</p>
+    <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About Us</button>
+  </div>
+
+  <!-- About Us Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-section">
+
+      <div class="about-box">
+        <img src="../images/Cards.webp" alt="Premium Embellished Products">
+        <div class="about-text">
+          <h3>Premium Embellished Products</h3>
+          <p>Finishes that flex – shiny, textured and made to stand out. From cards to tags, turn heads, not blend in.</p>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <img src="../images/Flyer.webp" alt="Marketing Materials">
+        <div class="about-text">
+          <h3>Marketing Materials</h3>
+          <p>Create impactful marketing materials and professional stationery to represent your brand. From flyers to custom stationery, we cover all your communication and impactful marketing needs.</p>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <img src="../images/business card.webp" alt="Packaging Solutions">
+        <div class="about-text">
+          <h3>Packaging Solutions</h3>
+          <p>Packaging that reflects your brand, from unboxing to safe delivery. Explore boxes, labels, mailers, and eco-friendly options.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Swami Enterprise. All Rights Reserved. |
+  </footer>
+
+  <!-- JS Modal Logo Preview -->
+  <script>
+    function openPreview() {
+      const overlay = document.createElement('div');
+      overlay.classList.add('modal-overlay');
+
+      const img = document.createElement('img');
+      img.src = '../images/swami-logo.png';
+      overlay.appendChild(img);
+
+      overlay.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+      });
+
+      document.body.appendChild(overlay);
+    }
+  </script>
+
+</body>
+</html>

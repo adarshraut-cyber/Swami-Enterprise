@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ID Card Combo | Swami Enterprise</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body {
+      background: url('../images/eye.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content:"";
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+    .container { display:flex; justify-content:space-around; flex-wrap:wrap; padding:60px 40px; }
+    .left { flex:1; min-width:280px; }
+    .left img.main-image { width:380px; height:280px; object-fit:cover; border-radius:8px; display:block; margin:0 auto; }
+    .thumbnails { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    .thumbnails img { width:150px; height:130px; object-fit:cover; border-radius:4px; cursor:pointer; border:2px solid transparent; transition:0.3s; }
+    .thumbnails img:hover { border-color:#ff4d4d; }
+    .right {
+      max-width:500px;
+      background: rgba(255,255,255,0.1);
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.4);
+    }
+    h2 { font-size:30px; margin-bottom:10px; }
+    .desc { font-size:15px; margin-bottom:20px; }
+    label { display:block; margin:15px 0 5px; font-weight:bold; }
+    input, select { width:100%; padding:8px; border-radius:6px; border:none; outline:none; }
+    .price-display { margin:15px 0; font-size:18px; font-weight:bold; }
+    button { background:#ff4d4d; color:white; padding:10px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+    button:hover { background:#e94444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Images -->
+    <div class="left">
+      <img src="../images/icardpreview.png" alt="ID Card Preview" class="main-image" id="mainPreview">
+      <div class="thumbnails">
+        <img src="../images/icards1.jpg" onclick="previewImage(this)">
+        <img src="../images/icards2.jpg" onclick="previewImage(this)">
+        <img src="../images/icards3.png" onclick="previewImage(this)">
+        <img src="../images/icards4.png" onclick="previewImage(this)">
+      </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="right">
+      <h2>Premium - ID Card and Lanyard Combo</h2>
+      <p class="desc">
+        Everything you need to carry your ID comfortably and safely.<br>
+        - Combo of ID Card, Lanyard and Holder<br>
+        - Choose 16mm or 20mm options<br>
+        - Single or Double-side Print<br>
+        - Multiple designs per order<br>
+        - Start from just 10 units.
+      </p>
+
+      <label for="customerName">Your Name</label>
+      <input type="text" id="customerName" required>
+
+      <label for="orderName">Order Name</label>
+      <input type="text" id="orderName" placeholder="This will show on your total order" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" required>
+
+      <label for="combo">Combo & Material</label>
+      <select id="combo">
+        <option>ID Card,Lanyard(16mm) and Premium Acrylic Holder C</option>
+        <option>ID Card,Lanyard(20mm) and Transparent Holder</option>
+      </select>
+
+      <label for="finish">ID Card Finish</label>
+      <select id="finish">
+        <option>Matte Lamination</option>
+        <option>Glossy Lamination</option>
+      </select>
+
+      <label for="printLocation">Print Locations</label>
+      <select id="printLocation">
+        <option>ID Card Front</option>
+        <option>ID Card Front & Back</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" value="10" min="10">
+
+      <!-- Dates -->
+      <label for="startDate">Start Date</label>
+      <input type="text" id="startDate" readonly>
+
+      <label for="endDate">End Date (Delivery)</label>
+      <input type="date" id="endDate" required>
+
+      <div class="price-display">Total Price: ₹<span id="price">180</span></div>
+
+      <button onclick="submitOrder()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    const quantityInput = document.getElementById("quantity");
+    const priceSpan = document.getElementById("price");
+    const startDateInput = document.getElementById("startDate");
+    const endDateInput = document.getElementById("endDate");
+    const PRICE_PER_ITEM = 18;
+    const mainPreview = document.getElementById("mainPreview");
+
+    // Set today's date
+    const today = new Date();
+    startDateInput.value = today.toISOString().split("T")[0];
+
+    // Set min end date = today + 7
+    const minEndDate = new Date(today);
+    minEndDate.setDate(minEndDate.getDate() + 7);
+    endDateInput.min = minEndDate.toISOString().split("T")[0];
+
+    // Price calculation
+    quantityInput.addEventListener("input", () => {
+      const qty = parseInt(quantityInput.value) || 10;
+      priceSpan.textContent = qty * PRICE_PER_ITEM;
+    });
+
+    // Thumbnail swap
+    function previewImage(imgElement) {
+      const tempSrc = mainPreview.src;
+      mainPreview.src = imgElement.src;
+      imgElement.src = tempSrc;
+
+      document.querySelectorAll(".thumbnails img").forEach(img => img.style.borderColor = "transparent");
+      imgElement.style.borderColor = "#ff4d4d";
+    }
+
+    function submitOrder() {
+      const customerName = document.getElementById("customerName").value.trim();
+      const orderName = document.getElementById("orderName").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const combo = document.getElementById("combo").value;
+      const finish = document.getElementById("finish").value;
+      const printLocation = document.getElementById("printLocation").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const startDate = startDateInput.value;
+      const endDate = endDateInput.value;
+      const price = quantity * PRICE_PER_ITEM;
+      const thumbnail = mainPreview.src;
+
+      if (!customerName || !orderName || !address || quantity < 10 || !endDate) {
+        alert("⚠️ Please fill all required fields correctly.");
+        return;
+      }
+
+      const newOrder = {
+        customer: customerName,
+        name: orderName,
+        address,
+        combo,
+        finish,
+        printLocation,
+        quantity,
+        orderType: "ID Card Combo",
+        orderDate: startDate,
+        deliveryDate: endDate,
+        totalPrice: price,
+        thumbnail
+      };
+
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(newOrder);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.setItem("orderCount", orders.length);
+
+      alert("✅ Your ID Card Combo order has been placed!");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>

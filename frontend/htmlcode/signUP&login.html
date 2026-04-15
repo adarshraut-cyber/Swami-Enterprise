@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Signup | Swami Enterprise</title>
+  <link rel="stylesheet" href="../css code/signUP&login.css" />
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Signup Form -->
+    <div class="form-container sign-up">
+      <form id="signupForm">
+        <h1>Create Account</h1>
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container sign-in">
+      <form id="loginForm">
+        <h1>Sign In</h1>
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <!-- Toggle Panel -->
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected, please login</p>
+          <button class="hidden" id="signIn">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello Buyer!</h1>
+          <p>"Print. Track. Relax."</p>
+          <button class="hidden" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js code/signUP&login.js"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Celebration Card Order | Swami Enterprise</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: url('../images/eye.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    nav h1 {
+      font-size: 24px;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4d4d;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 40px;
+    }
+
+    .left {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .left img.main-image {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .thumbnails {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thumbnails img {
+      width: 80px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .thumbnails img:hover {
+      border-color: #ff4d4d;
+    }
+
+    .right {
+      flex: 1;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .right h2 {
+      margin-bottom: 20px;
+    }
+
+    .right p {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #ff1a1a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+      background: rgba(0, 0, 0, 0.5);
+      border-top: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Swami Enterprise</h1>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="contact.html">Contact</a>
+      <a href="signin.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Left Image -->
+    <div class="left">
+      <img src="../images/Cards.webp" alt="Celebration Card" class="main-image" id="mainPreview" />
+
+      <!-- Thumbnails -->
+      <div class="thumbnails">
+        <img src="../images/bthday1.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday2.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday3.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday4.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday5.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday6.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday7.png" onclick="previewImage(this.src)">
+        <img src="../images/bthday8.png" onclick="previewImage(this.src)">
+      </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="right">
+      <h2>Celebration-Card Order</h2>
+      <p>Quick, stylish, and effortless — the perfect way to share your contact details and create a strong first impression.</p>
+      <p>Final Size: 3.5 x 2 inches<br>
+         Material: 300 GSM Lykam Matte or Glossy Coated Paper<br>
+         Printing: Single- or Double-sided<br>
+         MOQ: 100 cards<br>
+         Same-Day Delivery: Available for orders placed before 3 PM<br>
+         Ideal for: Business Owners, Freelancers, Events, Walk-ins, Corporate Professionals
+      </p>
+
+      <div class="form-group">
+        <label for="name">Your Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="orderName">Order Name</label>
+        <input type="text" id="orderName" placeholder="This name will be displayed on total order!!" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Enter your full address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bdayPerson">What is the Person's Name</label>
+        <input type="text" id="bdayPerson" placeholder="Enter name of the person">
+      </div>
+
+      <div class="form-group">
+        <label for="bdayDate">Date of inviting</label>
+        <input type="date" id="bdayDate">
+      </div>
+
+      <!-- ✅ Added Today's Date -->
+      <div class="form-group">
+        <label for="todayDate">Today's Date</label>
+        <input type="text" id="todayDate" readonly>
+      </div>
+
+      <!-- ✅ Added Delivery Date -->
+      <div class="form-group">
+        <label for="deliveryDate">Delivery Date</label>
+        <input type="date" id="deliveryDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" value="1" min="1" oninput="updatePrice()" required>
+      </div>
+
+      <div class="form-group">
+        <label for="material">Material</label>
+        <select id="material" required>
+          <option value="Lykam Matte Coated Paper">Lykam Matte Coated Paper</option>
+          <option value="Lykam Coated Glossy Paper">Lykam Coated Glossy Paper</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="orientation">Orientation</label>
+        <select id="orientation" required>
+          <option value="Landscape">Landscape</option>
+          <option value="Portrait">Portrait</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Total Price (₹)</label>
+        <input type="text" id="price" value="27" readonly>
+      </div>
+
+      <button class="submit-btn" onclick="submitOrder()">Submit Order</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Swami Enterprise. All Rights Reserved. 
+  </footer>
+
+  <!-- JS -->
+  <script>
+  function updatePrice() {
+    const qty = parseInt(document.getElementById("quantity").value) || 1;
+    document.getElementById("price").value = qty * 27;
+  }
+
+  function previewImage(src) {
+    document.getElementById("mainPreview").src = src;
+  }
+
+  const todayInput = document.getElementById("todayDate");
+  const today = new Date();
+  todayInput.value = today.toISOString().split("T")[0];
+
+  const deliveryInput = document.getElementById("deliveryDate");
+  const minDeliveryDate = new Date(today);
+  minDeliveryDate.setDate(minDeliveryDate.getDate() + 7);
+  deliveryInput.min = minDeliveryDate.toISOString().split("T")[0];
+
+  function submitOrder() {
+    const customerName = document.getElementById("name").value.trim();
+    const orderName = document.getElementById("orderName").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const bdayPerson = document.getElementById("bdayPerson").value.trim();
+    const bdayDate = document.getElementById("bdayDate").value;
+    const todayDate = document.getElementById("todayDate").value;
+    const deliveryDate = document.getElementById("deliveryDate").value;
+    const quantity = parseInt(document.getElementById("quantity").value);
+    const material = document.getElementById("material").value;
+    const orientation = document.getElementById("orientation").value;
+    const price = parseInt(document.getElementById("price").value);
+
+    if (!customerName || !orderName || quantity < 1 || !deliveryDate) {
+      alert("⚠️ Please fill in all required fields correctly.");
+      return;
+    }
+
+    const newOrder = {
+      customer: customerName,
+      name: orderName,
+      address,
+      bdayPerson,
+      bdayDate,
+      todayDate,
+      deliveryDate,
+      quantity,
+      material,
+      orientation,
+      orderType: "Celebration-Card Order",  // ✅ consistent
+      totalPrice: price
+    };
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem("orderCount", orders.length);
+
+    alert("✅ Your order has been placed!");
+    location.href = "dashboard.html";
+  }
+</script>
+
+</body>
+</html>
+

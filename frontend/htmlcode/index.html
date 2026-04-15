@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Role | Swami Enterprise</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f7fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .popup-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    .popup-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .popup-box button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .user-btn {
+      background: #007bff;
+      color: #fff;
+    }
+    .user-btn:hover {
+      background: #0056b3;
+    }
+    .admin-btn {
+      background: #28a745;
+      color: #fff;
+    }
+    .admin-btn:hover {
+      background: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-box">
+    <h2>Continue as</h2>
+    <button class="user-btn" onclick="goUser()">User</button>
+    <button class="admin-btn" onclick="goAdmin()">Admin</button>
+  </div>
+
+  <script>
+    function goUser() {
+      // redirect to your login/signup page
+      window.location.href = "signUp&login.html";  
+    }
+    function goAdmin() {
+      // redirect to your admin page
+      window.location.href = "loginadmin.html";  
+    }
+  </script>
+</body>
+</html>

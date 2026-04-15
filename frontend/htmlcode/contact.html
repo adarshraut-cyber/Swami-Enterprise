@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact swami enterprises</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: url('../images/contactbackground.webp') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .back-link a {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .contact-form, .contact-info {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ddd;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: #000;
+    }
+
+    .contact-form button {
+      padding: 10px 25px;
+      background: transparent;
+      color: white;
+      border: 2px solid #ff4d4d;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff4d4d;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+      color: white;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+      color: #eee;
+    }
+
+    .contact-info i {
+      color: #ff4d4d;
+      margin-right: 8px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #ccc;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  
+
+  <div class="contact-container">
+    
+    <!-- Form -->
+    <div class="contact-form">
+      <form id="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" required placeholder="Enter your name" />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" required placeholder="Enter your email" />
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" required placeholder="What’s this about?" />
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Info + Map -->
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><i class='bx bxs-phone'></i> +91 7057083026</p>
+      <p><i class='bx bxs-envelope'></i> rahulpress@gmail.com</p>
+      <p><i class='bx bxs-map'></i> 105/B Vighneshwar Apt, Vijay Nagar, Nallasopara (E)</p>
+
+      <div class="map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3762.642976246846!2d72.824435!3d19.427826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDI1JzQwLjIiTiA3MsKwNDknMjguMCJF!5e0!3m2!1sen!2sin!4v1752764297116!5m2!1sen!2sin" 
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 TwinklePress. All Rights Reserved. |
+  </footer>
+   <script src="../js code/contact.js"></script>
+</body>
+</html>
+
+  

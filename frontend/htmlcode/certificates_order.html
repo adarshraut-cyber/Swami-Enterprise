@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificates | Swami Enterprise</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+    body {
+      background: url('../images/eye.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding: 60px 40px;
+      flex-wrap: wrap;
+    }
+
+    .left img.main-image {
+      width: 350px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .thumbnails img {
+      width: 150px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.18s;
+    }
+    .thumbnails img:hover {
+      border-color: #ff4d4d;
+    }
+
+    .right {
+      max-width: 500px;
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    h2 { font-size: 30px; margin-bottom: 10px; }
+    .desc { font-size: 15px; margin-bottom: 20px; }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    select, input[type="number"], input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .price-display {
+      margin: 15px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    button {
+      background: #ff4d4d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #e94444; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left: Preview + Thumbnails -->
+    <div class="left">
+      <img src="../images/certificateprev.webp" alt="Certificate Preview" class="main-image" id="mainPreview">
+      <div class="thumbnails">
+        <img src="../images/certificate1.jpg" onclick="previewImage(this)">
+        <img src="../images/certificate2.jpg" onclick="previewImage(this)">
+        <img src="../images/certificate3.jpg" onclick="previewImage(this)">
+        <img src="../images/certificate4.jpg" onclick="previewImage(this)">
+        <img src="../images/certificate5.jpg" onclick="previewImage(this)">
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="right">
+      <h2>Premium Finish Certificates</h2>
+      <p class="desc">
+        Make every milestone unforgettable with Premium Certificates that exude elegance.<br>
+        • Choose from two different high-quality premium paper for a luxurious feel.<br>
+        • Customizable with Gold, Silver, or Spot UV finishes.<br>
+        • Available with Matte or Velvet lamination for added sophistication.<br>
+        • Order from just 5 units!<br>
+        • Perfect for Corporate Awards, Academic achievements, Training completions, or Special recognitions.
+      </p>
+
+      <label for="customerName">Your Name</label>
+      <input type="text" id="customerName" required>
+
+      <label for="orderName">Order Name</label>
+      <input type="text" id="orderName" placeholder="This will show on total order" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" required>
+
+      <label for="material">Material</label>
+      <select id="material">
+        <option value="Lykam Matte Coated">Lykam Matte Coated</option>
+        <option value="Lykam Glossy Coated">Lykam Glossy Coated</option>
+      </select>
+
+      <label for="lamination">Lamination</label>
+      <select id="lamination">
+        <option value="Matte Lamination">Matte Lamination</option>
+        <option value="Velvet Lamination">Velvet Lamination</option>
+      </select>
+
+      <label for="finish">Finish</label>
+      <select id="finish">
+        <option value="Spot UV">Spot UV</option>
+        <option value="Gold Foil">Gold Foil</option>
+        <option value="Silver Foil">Silver Foil</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" min="1" value="1" />
+
+      <!-- Dates -->
+      <label for="todayDate">Start Date</label>
+      <input type="text" id="todayDate" readonly>
+
+      <label for="deliveryDate">End Date (Delivery)</label>
+      <input type="date" id="deliveryDate" required>
+
+      <div class="price-display">Total Price: ₹<span id="price">203</span></div>
+
+      <button onclick="submitOrder()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    const quantityInput = document.getElementById("quantity");
+    const priceDisplay = document.getElementById("price");
+    const todayInput = document.getElementById("todayDate");
+    const deliveryInput = document.getElementById("deliveryDate");
+
+    // Auto set today's date
+    const today = new Date();
+    todayInput.value = today.toISOString().split("T")[0];
+
+    // Set min delivery date = today + 7 days
+    const minDeliveryDate = new Date(today);
+    minDeliveryDate.setDate(minDeliveryDate.getDate() + 7);
+    deliveryInput.min = minDeliveryDate.toISOString().split("T")[0];
+
+    // Update price dynamically
+    quantityInput.addEventListener("input", () => {
+      const qty = parseInt(quantityInput.value) || 1;
+      priceDisplay.textContent = qty * 203;
+    });
+
+    // ---- SWAP FUNCTION: main <-> clicked thumbnail ----
+    function previewImage(imgElement) {
+      const mainPreview = document.getElementById("mainPreview");
+      // swap the src values (so they exchange positions)
+      const temp = mainPreview.src;
+      mainPreview.src = imgElement.src;
+      imgElement.src = temp;
+
+      // reset border highlights then highlight the clicked (now swapped) thumbnail
+      document.querySelectorAll(".thumbnails img").forEach(img => {
+        img.style.borderColor = "transparent";
+      });
+      imgElement.style.borderColor = "#ff4d4d";
+    }
+    // --------------------------------------------------
+
+    // Optional: highlight first thumbnail on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const firstThumb = document.querySelector('.thumbnails img');
+      if (firstThumb) firstThumb.style.borderColor = '#ff4d4d';
+    });
+
+    function submitOrder() {
+      const customer = document.getElementById("customerName").value.trim();
+      const orderName = document.getElementById("orderName").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const material = document.getElementById("material").value;
+      const lamination = document.getElementById("lamination").value;
+      const finish = document.getElementById("finish").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const todayDate = document.getElementById("todayDate").value;
+      const deliveryDate = document.getElementById("deliveryDate").value;
+      const price = quantity * 203;
+
+      if (!customer || !orderName || !address || quantity < 1 || !deliveryDate) {
+        alert("⚠️ Please fill all required fields correctly.");
+        return;
+      }
+
+      const newOrder = {
+        customer,
+        name: orderName,
+        address,
+        material,
+        lamination,
+        finish,
+        quantity,
+        orderType: "Certificate",
+        orderDate: todayDate,
+        deliveryDate,
+        totalPrice: price
+      };
+
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+      orders.push(newOrder);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.setItem("orderCount", orders.length);
+
+      alert("✅ Your Certificate order has been placed!");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>
